@@ -120,7 +120,6 @@ class KafkaEventBroker(EventBroker):
         event["userId"] = self.userId
         event["botAvatar"] = self.botAvatar
         event["botName"] = self.botName
-        event["sender_id"] = event["sender_id"].encode('utf-8').hex()
         while retries:
             try:
                 self._publish(event)
