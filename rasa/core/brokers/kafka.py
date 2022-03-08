@@ -89,6 +89,7 @@ class KafkaEventBroker(EventBroker):
         self.botAvatar = kwargs.get("botAvatar")
         self.botName = kwargs.get("botName")
         self.processID = kwargs.get("processID")
+        self.entityID = kwargs.get("entityID")
 
     @classmethod
     async def from_endpoint_config(
@@ -122,6 +123,7 @@ class KafkaEventBroker(EventBroker):
         event["botAvatar"] = self.botAvatar
         event["botName"] = self.botName
         event["processID"] = self.processID
+        event["entityID"] = self.entityID
         while retries:
             try:
                 self._publish(event)
