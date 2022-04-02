@@ -250,7 +250,8 @@ class SocketIOInput(InputChannel):
                 sender_id = sid
 
             message = UserMessage(
-                data["message"], output_channel, sender_id, input_channel=self.name()
+                data["message"], output_channel, sender_id, input_channel=self.name(),
+                metadata = data.get("metadata",None)
             )
             await on_new_message(message)
 
